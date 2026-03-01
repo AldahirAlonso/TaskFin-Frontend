@@ -6,37 +6,37 @@ interface CreateProps {
 }
 
 function Create({ onAdd }: CreateProps) {
-    const [taskName, setTaskName] = useState('');
-    const [taskDescription, setTaskDescription] = useState('');
-    const [taskStatus, setTaskStatus] = useState('Pendiente');
-    const [taskStartTime, setTaskStartTime] = useState('');
-    const [taskEndTime, setTaskEndTime] = useState('');
-    const [taskStartDate, setTaskStartDate] = useState('');
-    const [taskEndDate, setTaskEndDate] = useState('');
+    const [name, setName] = useState('');
+    const [description, setDescription] = useState('');
+    const [status, setStatus] = useState('Pendiente');
+    const [startTime, setStartTime] = useState('');
+    const [endTime, setEndTime] = useState('');
+    const [startDate, setStartDate] = useState('');
+    const [endDate, setEndDate] = useState('');
 
     const handleSubmit = (e: React.FormEvent) => {
         e.preventDefault();
-        if (!taskName.trim() || !taskDescription.trim()) return;
+        if (!name.trim() || !description.trim()) return;
 
         const newItem: TaskItem = {
             id: Date.now().toString(),
-            taskName,
-            taskDescription,
-            taskStatus,
-            taskStartTime,
-            taskEndTime,
-            taskStartDate,
-            taskEndDate
+            name,
+            description,
+            status,
+            startTime,
+            endTime,
+            startDate,
+            endDate
         };
 
         onAdd(newItem);
-        setTaskName('');
-        setTaskDescription('');
-        setTaskStatus('Pendiente');
-        setTaskStartTime('');
-        setTaskEndTime('');
-        setTaskStartDate('');
-        setTaskEndDate('');
+        setName('');
+        setDescription('');
+        setStatus('Pendiente');
+        setStartTime('');
+        setEndTime('');
+        setStartDate('');
+        setEndDate('');
 
         alert('¡Tarea creada con éxito!');
     };
@@ -54,8 +54,8 @@ function Create({ onAdd }: CreateProps) {
                     <div className='flex flex-col gap-2 md:col-span-2'>
                         <label className='text-sm font-semibold text-gray-700'>Nombre de la Tarea</label>
                         <input
-                            value={taskName}
-                            onChange={(e) => setTaskName(e.target.value)}
+                            value={name}
+                            onChange={(e) => setName(e.target.value)}
                             className='border border-gray-200 focus:border-blue-500 focus:ring-4 focus:ring-blue-500/10 rounded-lg p-3 outline-none transition-all bg-white'
                             type='text' placeholder='Ej. Realizar reporte trimestral' required
                         />
@@ -64,8 +64,8 @@ function Create({ onAdd }: CreateProps) {
                     <div className='flex flex-col gap-2 md:col-span-2'>
                         <label className='text-sm font-semibold text-gray-700'>Descripción</label>
                         <textarea
-                            value={taskDescription}
-                            onChange={(e) => setTaskDescription(e.target.value)}
+                            value={description}
+                            onChange={(e) => setDescription(e.target.value)}
                             className='border border-gray-200 focus:border-blue-500 focus:ring-4 focus:ring-blue-500/10 rounded-lg p-3 outline-none transition-all min-h-[100px] resize-y bg-white'
                             placeholder='Detalles de la tarea...' required
                         />
@@ -74,8 +74,8 @@ function Create({ onAdd }: CreateProps) {
                     <div className='flex flex-col gap-2 md:col-span-2'>
                         <label className='text-sm font-semibold text-gray-700'>Estado</label>
                         <select
-                            value={taskStatus}
-                            onChange={(e) => setTaskStatus(e.target.value)}
+                            value={status}
+                            onChange={(e) => setStatus(e.target.value)}
                             className='border border-gray-200 focus:border-blue-500 focus:ring-4 focus:ring-blue-500/10 rounded-lg p-3 outline-none transition-all bg-white'
                             required
                         >
@@ -88,8 +88,8 @@ function Create({ onAdd }: CreateProps) {
                     <div className='flex flex-col gap-2'>
                         <label className='text-sm font-semibold text-gray-700'>Fecha de Inicio</label>
                         <input
-                            value={taskStartDate}
-                            onChange={(e) => setTaskStartDate(e.target.value)}
+                            value={startDate}
+                            onChange={(e) => setStartDate(e.target.value)}
                             className='border border-gray-200 focus:border-blue-500 focus:ring-4 focus:ring-blue-500/10 rounded-lg p-3 outline-none transition-all bg-white'
                             type='date' required
                         />
@@ -98,8 +98,8 @@ function Create({ onAdd }: CreateProps) {
                     <div className='flex flex-col gap-2'>
                         <label className='text-sm font-semibold text-gray-700'>Hora de Inicio</label>
                         <input
-                            value={taskStartTime}
-                            onChange={(e) => setTaskStartTime(e.target.value)}
+                            value={startTime}
+                            onChange={(e) => setStartTime(e.target.value)}
                             className='border border-gray-200 focus:border-blue-500 focus:ring-4 focus:ring-blue-500/10 rounded-lg p-3 outline-none transition-all bg-white'
                             type='time' required
                         />
@@ -108,8 +108,8 @@ function Create({ onAdd }: CreateProps) {
                     <div className='flex flex-col gap-2'>
                         <label className='text-sm font-semibold text-gray-700'>Fecha de Fin</label>
                         <input
-                            value={taskEndDate}
-                            onChange={(e) => setTaskEndDate(e.target.value)}
+                            value={endDate}
+                            onChange={(e) => setEndDate(e.target.value)}
                             className='border border-gray-200 focus:border-blue-500 focus:ring-4 focus:ring-blue-500/10 rounded-lg p-3 outline-none transition-all bg-white'
                             type='date' required
                         />
@@ -118,8 +118,8 @@ function Create({ onAdd }: CreateProps) {
                     <div className='flex flex-col gap-2'>
                         <label className='text-sm font-semibold text-gray-700'>Hora de Fin</label>
                         <input
-                            value={taskEndTime}
-                            onChange={(e) => setTaskEndTime(e.target.value)}
+                            value={endTime}
+                            onChange={(e) => setEndTime(e.target.value)}
                             className='border border-gray-200 focus:border-blue-500 focus:ring-4 focus:ring-blue-500/10 rounded-lg p-3 outline-none transition-all bg-white'
                             type='time' required
                         />
