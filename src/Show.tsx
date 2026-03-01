@@ -41,24 +41,24 @@ function Show({ items }: ShowProps) {
                     {items.map((item) => (
                         <div key={item.id} className='bg-white border border-gray-200 shadow-sm hover:shadow-md transition-all duration-300 rounded-xl p-5 group flex flex-col h-full'>
                             <div className='flex items-start justify-between mb-3 gap-2'>
-                                <h3 className='text-lg font-bold text-gray-800 leading-tight' title={item.taskName}>{item.taskName}</h3>
-                                <span className={`text-xs font-bold px-2.5 py-1 rounded-full border whitespace-nowrap ${getStatusColor(item.taskStatus)}`}>
-                                    {item.taskStatus}
+                                <h3 className='text-lg font-bold text-gray-800 leading-tight' title={item.name}>{item.name}</h3>
+                                <span className={`text-xs font-bold px-2.5 py-1 rounded-full border whitespace-nowrap ${getStatusColor(item.status)}`}>
+                                    {item.status}
                                 </span>
                             </div>
 
-                            <p className='text-gray-600 text-sm leading-relaxed mb-4 flex-1' title={item.taskDescription}>
-                                {item.taskDescription}
+                            <p className='text-gray-600 text-sm leading-relaxed mb-4 flex-1' title={item.description}>
+                                {item.description}
                             </p>
 
                             <div className='border-t border-gray-100 pt-4 mt-auto grid grid-cols-2 gap-x-2 gap-y-3 text-xs text-gray-500'>
                                 <div>
                                     <p className='font-semibold text-gray-700 mb-0.5'>Inicio</p>
-                                    <p>{item.taskStartDate} {item.taskStartTime}</p>
+                                    <p>{item.startDate} {item.startTime}</p>
                                 </div>
                                 <div>
                                     <p className='font-semibold text-gray-700 mb-0.5'>Fin</p>
-                                    <p>{item.taskEndDate} {item.taskEndTime}</p>
+                                    <p>{item.endDate} {item.endTime}</p>
                                 </div>
                             </div>
                         </div>
