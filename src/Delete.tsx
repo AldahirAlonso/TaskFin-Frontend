@@ -35,10 +35,10 @@ function Delete({ items, onDelete }: DeleteProps) {
                         {items.map(item => (
                             <li key={item.id} className='p-5 flex flex-col sm:flex-row sm:items-center justify-between gap-4 hover:bg-gray-50/80 transition-colors'>
                                 <div>
-                                    <h3 className='font-bold text-gray-800 text-lg'>{item.taskName}</h3>
+                                    <h3 className='font-bold text-gray-800 text-lg'>{item.name}</h3>
                                     <div className='flex gap-3 text-sm text-gray-500 mt-1'>
-                                        <span className='font-medium text-indigo-600 bg-indigo-50 px-2 py-0.5 rounded'>{item.taskStatus}</span>
-                                        <span>{item.taskStartDate} - {item.taskEndDate}</span>
+                                        <span className='font-medium text-indigo-600 bg-indigo-50 px-2 py-0.5 rounded'>{item.status}</span>
+                                        <span>{item.startDate} - {item.endDate}</span>
                                     </div>
                                 </div>
 
