@@ -9,38 +9,38 @@ interface ModifyProps {
 function Modify({ items, onUpdate }: ModifyProps) {
     const [selectedId, setSelectedId] = useState<string | null>(null);
 
-    const [taskName, setTaskName] = useState('');
-    const [taskDescription, setTaskDescription] = useState('');
-    const [taskStatus, setTaskStatus] = useState('Pendiente');
-    const [taskStartTime, setTaskStartTime] = useState('');
-    const [taskEndTime, setTaskEndTime] = useState('');
-    const [taskStartDate, setTaskStartDate] = useState('');
-    const [taskEndDate, setTaskEndDate] = useState('');
+    const [name, setName] = useState('');
+    const [description, setDescription] = useState('');
+    const [status, setStatus] = useState('Pendiente');
+    const [startTime, setStartTime] = useState('');
+    const [endTime, setEndTime] = useState('');
+    const [startDate, setStartDate] = useState('');
+    const [endDate, setEndDate] = useState('');
 
     const handleSelect = (item: TaskItem) => {
         setSelectedId(item.id);
-        setTaskName(item.taskName);
-        setTaskDescription(item.taskDescription);
-        setTaskStatus(item.taskStatus);
-        setTaskStartTime(item.taskStartTime);
-        setTaskEndTime(item.taskEndTime);
-        setTaskStartDate(item.taskStartDate);
-        setTaskEndDate(item.taskEndDate);
+        setName(item.name);
+        setDescription(item.description);
+        setStatus(item.status);
+        setStartTime(item.startTime);
+        setEndTime(item.endTime);
+        setStartDate(item.startDate);
+        setEndDate(item.endDate);
     };
 
     const handleSubmit = (e: React.FormEvent) => {
         e.preventDefault();
-        if (!selectedId || !taskName.trim() || !taskDescription.trim()) return;
+        if (!selectedId || !name.trim() || !description.trim()) return;
 
         onUpdate({
             id: selectedId,
-            taskName,
-            taskDescription,
-            taskStatus,
-            taskStartTime,
-            taskEndTime,
-            taskStartDate,
-            taskEndDate
+            name,
+            description,
+            status,
+            startTime,
+            endTime,
+            startDate,
+            endDate
         });
 
         setSelectedId(null);
@@ -70,12 +70,12 @@ function Modify({ items, onUpdate }: ModifyProps) {
                                         <button
                                             onClick={() => handleSelect(item)}
                                             className={`w-full text-left px-4 py-3 rounded-lg transition-colors text-sm ${selectedId === item.id
-                                                    ? 'bg-blue-50 border-blue-200 border text-blue-700 shadow-sm'
-                                                    : 'hover:bg-gray-50 border border-transparent text-gray-700 border-b border-gray-100'
+                                                ? 'bg-blue-50 border-blue-200 border text-blue-700 shadow-sm'
+                                                : 'hover:bg-gray-50 border border-transparent text-gray-700 border-b border-gray-100'
                                                 }`}
                                         >
-                                            <div className='font-bold truncate'>{item.taskName}</div>
-                                            <div className='text-xs text-gray-500 mt-1 font-medium'>{item.taskStatus}</div>
+                                            <div className='font-bold truncate'>{item.name}</div>
+                                            <div className='text-xs text-gray-500 mt-1 font-medium'>{item.status}</div>
                                         </button>
                                     </li>
                                 ))}
@@ -94,8 +94,8 @@ function Modify({ items, onUpdate }: ModifyProps) {
                                 <div className='flex flex-col gap-2 md:col-span-2'>
                                     <label className='text-sm font-semibold text-gray-700'>Nombre de la Tarea</label>
                                     <input
-                                        value={taskName}
-                                        onChange={(e) => setTaskName(e.target.value)}
+                                        value={name}
+                                        onChange={(e) => setName(e.target.value)}
                                         className='border border-gray-300 focus:border-blue-500 focus:ring-2 focus:ring-blue-500/20 rounded-lg p-2.5 outline-none bg-white transition-all shadow-sm'
                                         type='text' required
                                     />
@@ -104,8 +104,8 @@ function Modify({ items, onUpdate }: ModifyProps) {
                                 <div className='flex flex-col gap-2 md:col-span-2'>
                                     <label className='text-sm font-semibold text-gray-700'>Descripción</label>
                                     <textarea
-                                        value={taskDescription}
-                                        onChange={(e) => setTaskDescription(e.target.value)}
+                                        value={description}
+                                        onChange={(e) => setDescription(e.target.value)}
                                         className='border border-gray-300 focus:border-blue-500 focus:ring-2 focus:ring-blue-500/20 rounded-lg p-2.5 outline-none bg-white transition-all shadow-sm min-h-[100px] resize-y'
                                         required
                                     />
@@ -114,8 +114,8 @@ function Modify({ items, onUpdate }: ModifyProps) {
                                 <div className='flex flex-col gap-2 md:col-span-2'>
                                     <label className='text-sm font-semibold text-gray-700'>Estado</label>
                                     <select
-                                        value={taskStatus}
-                                        onChange={(e) => setTaskStatus(e.target.value)}
+                                        value={status}
+                                        onChange={(e) => setStatus(e.target.value)}
                                         className='border border-gray-300 focus:border-blue-500 focus:ring-2 focus:ring-blue-500/20 rounded-lg p-2.5 outline-none bg-white transition-all shadow-sm'
                                         required
                                     >
@@ -128,8 +128,8 @@ function Modify({ items, onUpdate }: ModifyProps) {
                                 <div className='flex flex-col gap-2'>
                                     <label className='text-sm font-semibold text-gray-700'>Fecha de Inicio</label>
                                     <input
-                                        value={taskStartDate}
-                                        onChange={(e) => setTaskStartDate(e.target.value)}
+                                        value={startDate}
+                                        onChange={(e) => setStartDate(e.target.value)}
                                         className='border border-gray-300 focus:border-blue-500 focus:ring-2 focus:ring-blue-500/20 rounded-lg p-2.5 outline-none bg-white transition-all shadow-sm'
                                         type='date' required
                                     />
@@ -138,8 +138,8 @@ function Modify({ items, onUpdate }: ModifyProps) {
                                 <div className='flex flex-col gap-2'>
                                     <label className='text-sm font-semibold text-gray-700'>Hora de Inicio</label>
                                     <input
-                                        value={taskStartTime}
-                                        onChange={(e) => setTaskStartTime(e.target.value)}
+                                        value={startTime}
+                                        onChange={(e) => setStartTime(e.target.value)}
                                         className='border border-gray-300 focus:border-blue-500 focus:ring-2 focus:ring-blue-500/20 rounded-lg p-2.5 outline-none bg-white transition-all shadow-sm'
                                         type='time' required
                                     />
@@ -148,8 +148,8 @@ function Modify({ items, onUpdate }: ModifyProps) {
                                 <div className='flex flex-col gap-2'>
                                     <label className='text-sm font-semibold text-gray-700'>Fecha de Fin</label>
                                     <input
-                                        value={taskEndDate}
-                                        onChange={(e) => setTaskEndDate(e.target.value)}
+                                        value={endDate}
+                                        onChange={(e) => setEndDate(e.target.value)}
                                         className='border border-gray-300 focus:border-blue-500 focus:ring-2 focus:ring-blue-500/20 rounded-lg p-2.5 outline-none bg-white transition-all shadow-sm'
                                         type='date' required
                                     />
@@ -158,8 +158,8 @@ function Modify({ items, onUpdate }: ModifyProps) {
                                 <div className='flex flex-col gap-2'>
                                     <label className='text-sm font-semibold text-gray-700'>Hora de Fin</label>
                                     <input
-                                        value={taskEndTime}
-                                        onChange={(e) => setTaskEndTime(e.target.value)}
+                                        value={endTime}
+                                        onChange={(e) => setEndTime(e.target.value)}
                                         className='border border-gray-300 focus:border-blue-500 focus:ring-2 focus:ring-blue-500/20 rounded-lg p-2.5 outline-none bg-white transition-all shadow-sm'
                                         type='time' required
                                     />
