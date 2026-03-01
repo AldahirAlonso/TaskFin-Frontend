@@ -36,12 +36,7 @@ function StarryBackground() {
             ))}
 
             {/* Estrellas fugaces */}
-            <div className="shooting-star-container">
-                <div className="shooting-star shooting-star-1"></div>
-                <div className="shooting-star shooting-star-2"></div>
-                <div className="shooting-star shooting-star-3"></div>
-                <div className="shooting-star shooting-star-4"></div>
-            </div>
+
         </div>
     );
 }
