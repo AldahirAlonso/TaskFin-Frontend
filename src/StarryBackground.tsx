@@ -34,9 +34,6 @@ function StarryBackground() {
                     }}
                 />
             ))}
-
-            {/* Estrellas fugaces */}
-
         </div>
     );
 }
